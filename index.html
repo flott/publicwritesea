@@ -1,83 +1,110 @@
 <html>
-  <head>
+
+<head>
+    <meta name="description" content="DevLab: Configure a popup">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Public Writing Spots Seattle</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""/>
-      
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""></script>
-          
-    <!-- Leaflet-providers comes AFTER Leaflet JS -->
-    <script src="js/leaflet-providers.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
     <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-      }
-      
-      #mapid {
-        width: 600px;
-        height: 400px;
-      }
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
     </style>
-    
-    <style>body { padding: 0; margin: 0; } #mapid { height: 100%; width: 100vw; }</style>
-  </head>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.20/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.20/"></script>
+</head>
 
-  <body>
-    <div id="mapid"></div>
-    <script src="spots.js" type="text/javascript"></script>
+<script>
 
-    <script>
-      var mymap = L.map('mapid').setView([47.599450,-122.297745], 11);
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/light-v10',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoiZmxvdHQiLCJhIjoiQ3hUMU9UQSJ9.vpXm8h8Dz52ZcbmRbWgzkg'
-        }).addTo(mymap);
+    require([
+        "esri/config",
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer",
+        "esri/layers/GeoJSONLayer",
+    ],
 
-      function onEachFeature(feature, layer) {
-        var popupContent = "";
-        if (feature.properties) {
-          popupContent += "<b><a href=\"" + 
-            feature.properties.tweetURL +"\">#" + 
-            feature.properties.spotID +
-            "</a>: " + feature.properties.spotName + "</b><br />" +
-            feature.properties.spotDesc + "<br />" +
-            "<a href=\"" + feature.properties.tweetURL +"\">" + 
-            "<img src=\"" + feature.properties.thumbnailURL +
-            "\" style=\"width:148px;height:100px;\"/></a>";
-        }
+        function (esriConfig, Map, MapView, FeatureLayer, GeoJSONLayer) {
 
-        layer.bindPopup(popupContent);
-      }
+            esriConfig.apiKey = "AAPK792523c1978e4815a3be33ee71299061H2A96_JzHfu0SCRvhB5flmSYDArEm5_SwAMFGYTIwHyjGR3OxMPbxyOqKDQiZ5O4";
 
-      L.geoJSON(spots, {
-        style: function (feature) {
-        return feature.properties && feature.properties.style;
-        },
+            const map = new Map({
+                basemap: "arcgis-modern-antique" //Basemap layer service
+            });
 
-        onEachFeature: onEachFeature,
-        pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {
-            radius: 8,
-            fillColor: "#ff7800",
-            color: "#000",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-          });
-        }
-      }).addTo(mymap);
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-122.298, 47.599], //Longitude, latitude
+                zoom: 11,
+                popup: {
+                    dockEnabled: true,
+                    dockOptions: {
+                        // disable dock button
+                        buttonEnabled: false,
+                        position: "bottom-left",
+                        breakpoint: false,
+                    },
+                    collapsed: false,
+                    collapseEnabled: false,
+                }
+            });
 
-    </script>
-  </body>
+
+            const popupSpots = {
+                // autocasts as new PopupTemplate()
+                "title": "Public Writing Spot #{spotID}",
+                content: [
+                    {
+                        type: "text",
+                        text: "<p><b>{SpotName}</b></p>{spotDesc}<br /><a href='{tweetURL}'>(Source @publicwritesea tweet)</a>"
+                    },
+                    {
+                        // reference: https://developers.arcgis.com/javascript/latest/api-reference/esri-popup-content-support-ImageMediaInfoValue.html
+                        type: "media",
+                        mediaInfos: [{
+                            title: "",
+                            caption: "{date}",
+                            value: {
+                                sourceURL: "{thumbnailURL}",
+                                linkURL: "{tweetURL}"
+                            }
+                        }]
+                    }
+                ],
+            }
+
+            const spotsRenderer = {
+                type: "simple", // autocasts as new SimpleRenderer()
+                symbol: {
+                    type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
+                    size: 10,
+                    color: "orange",
+
+                }
+            }
+
+            const spots = new GeoJSONLayer({
+                url: "https://flott.github.io/publicwritesea/spots.geojson",
+                copyright: "@publicwritesea",
+                popupTemplate: popupSpots,
+                // renderer: spotsRenderer,
+            })
+
+            map.add(spots);
+
+        });
+</script>
+
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+</body>
+
 </html>
