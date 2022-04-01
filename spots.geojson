@@ -1156,6 +1156,27 @@
                     47.6095702
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "56",
+                "latitude": 47.612861495716196,
+                "longitude": -122.33517848825569,
+                "spotID": "55",
+                "date": "2022-03-26",
+                "tweetURL": "https://twitter.com/publicwritesea/status/1507844067094241290",
+                "spotName": "Tables and chairs in Pacific Place, downtown",
+                "spotDesc": "Some tables with outlets, chairs, amid the sounds of the mall. Lots of light from the skylight above, plus WiFi. Not on any POPS list but also no purchase necessary as far as I can tell!",
+                "thumbnailURL": "https://pbs.twimg.com/media/FOzwJv8VkAMVvWw.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3351785,
+                    47.6128615
+                ]
+            }
         }
     ]
 }
