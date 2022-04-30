@@ -1177,6 +1177,27 @@
                     47.6128615
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "57",
+                "latitude": 47.5578527,
+                "longitude": -122.3505001,
+                "spotID": "56",
+                "date": "2022-03-26",
+                "tweetURL": "https://twitter.com/publicwritesea/status/1518363149426077696",
+                "spotName": "Shaded table off the Duwamish trail, West Seattle",
+                "spotDesc": "A view of the city over the calm waterway, some traffic sounds. More tables nearby in həʔapus Village Park.",
+                "thumbnailURL": "https://pbs.twimg.com/media/FRJPO2mVgAAUSS9.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3505001,
+                    47.5578527
+                ]
+            }
         }
     ]
 }
