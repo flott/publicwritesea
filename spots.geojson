@@ -1185,7 +1185,7 @@
                 "latitude": 47.5578527,
                 "longitude": -122.3505001,
                 "spotID": "56",
-                "date": "2022-03-26",
+                "date": "2022-04-24",
                 "tweetURL": "https://twitter.com/publicwritesea/status/1518363149426077696",
                 "spotName": "Shaded table off the Duwamish trail, West Seattle",
                 "spotDesc": "A view of the city over the calm waterway, some traffic sounds. More tables nearby in həʔapus Village Park.",
@@ -1196,6 +1196,27 @@
                 "coordinates": [
                     -122.3505001,
                     47.5578527
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "58",
+                "latitude": 47.6492297,
+                "longitude": -122.3114693,
+                "spotID": "57",
+                "date": "2022-05-14",
+                "tweetURL": "https://mobile.twitter.com/publicwritesea/status/1525600942019686400",
+                "spotName": "Two tables under a willow near UW south campus",
+                "spotDesc": "Right on Portage Bay, looking out over the water to the neighborhood of the same name. Boats going by and rolling their wake onto the shore. Shaded mostly.",
+                "thumbnailURL": "https://pbs.twimg.com/media/FSwF92BUYAA2Ohy.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3114693,
+                    47.6492297
                 ]
             }
         }
