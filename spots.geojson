@@ -1219,6 +1219,27 @@
                     47.6492297
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "59",
+                "latitude": 47.6812116,
+                "longitude": -122.3414198,
+                "spotID": "58",
+                "date": "2022-05-21",
+                "tweetURL": "https://twitter.com/publicwritesea/status/1528195099661725697",
+                "spotName": "Table on a hill near Green Lake",
+                "spotDesc": "Some lake views, walkers along the path. Shaded partially in the afternoon and evening by some oaks.",
+                "thumbnailURL": "https://pbs.twimg.com/media/FTU9VMOUUAAyslO.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3414198,
+                    47.6812116
+                ]
+            }
         }
     ]
 }
