@@ -1240,6 +1240,48 @@
                     47.6812116
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "60",
+                "latitude": 47.5986003,
+                "longitude": -122.32552,
+                "spotID": "59",
+                "date": "2022-06-27",
+                "tweetURL": "https://twitter.com/publicwritesea/status/1541570367755456512",
+                "spotName": "Yables in Hing Hay Park, International District",
+                "spotDesc": "Some covered by paper umbrellas, or under a roof. Ping-pong, cornhole, etc kinds of games around, usually fairly bustling.",
+                "thumbnailURL": "https://pbs.twimg.com/media/FWTCEYFUIAAhRtG.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.32552,
+                    47.5986003
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "61",
+                "latitude": 47.6102596,
+                "longitude": -122.3424327,
+                "spotID": "60",
+                "date": "2022-06-30",
+                "tweetURL": "https://twitter.com/publicwritesea/status/1542625068055818241",
+                "spotName": "Public seating outside Seattle Dumpling Co. & others off Post Alley, Pike Place Market",
+                "spotDesc": "Often busy, yet secluded. Good for an eat and write session, perhaps.",
+                "thumbnailURL": "https://pbs.twimg.com/media/FWiBQjiUcAArZF3.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3424327,
+                    47.6102596
+                ]
+            }
         }
     ]
 }
