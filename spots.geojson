@@ -1282,6 +1282,48 @@
                     47.6102596
                 ]
             }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "62",
+                "latitude": 47.6978488,
+                "longitude": -122.3393475,
+                "spotID": "61",
+                "date": "2022-07-07",
+                "tweetURL": "https://twitter.com/publicwritesea/status/1545145380643278848",
+                "spotName": "Table in Licton Springs park, Northgate",
+                "spotDesc": "Not a lot of shade, but in a quiet neighborhood near the walking path that weaves around and into the shady springs of the interior.",
+                "thumbnailURL": "https://pbs.twimg.com/media/FXF1gNIVEAEQffn.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3393475,
+                    47.6978488
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "63",
+                "latitude": 47.6556814,
+                "longitude": -122.3156036,
+                "spotID": "62",
+                "date": "2022-07-08",
+                "tweetURL": "https://twitter.com/publicwritesea/status/1545467855184859136",
+                "spotName": "Tables on Cowlitz Rd walkthrough between Maple and Lander Halls, University of Washington",
+                "spotDesc": "Shaded between buildings and not a far walk from the Burke-Gilman trail and Portage Bay.",
+                "thumbnailURL": "https://pbs.twimg.com/media/FXKa0hCUUAE0_iO.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3156036,
+                    47.6556814
+                ]
+            }
         }
     ]
 }
